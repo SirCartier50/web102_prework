@@ -32,7 +32,7 @@ GIF created with [ScreenToGif](https://www.screentogif.com/)
 
 ## Notes
 
-Some challenges I faced were resizing all boxes containing each game because they started out huge which was not expected. Also had issues trying to add filtering to search bar everytime a new change in the text field was made.
+Some challenges I faced were resizing all boxes containing each game because they started out huge which was not expected. Also had issues trying to add filtering to search bar everytime a new change in the text field was made. A huge issue was creating the about page because I was approaching for making a universal about page so that when you click on a game, it would send you to that about page but it gets changed based on the game chosen. I did this so i wouldn't have to hard code an about page for every game and instead have one about page that grabs the name of the game through the url and displays the correct information tailored to it. Figuring out how to send the name was hard at first but figure out how to add it to the url with window.location.href and urlSearchParams. To make the games clickable links, I had to place the class name, game-card, from the div I made to a new a tag, which altered the page in a bad way with elements overflowing. I was able to fix this by adding display:block and setting a fixed height to the style.css file and it went back to normal.
 
 ## License
 
