@@ -55,12 +55,15 @@ body {
 }
 
 .game-card {
+    display: block;
     background-color: #FFFFFF;
     padding: 1%;
     margin: 1%;
     width: 300px;
+    height: 400px;
     text-align: center;
     border-radius: 7px;
+    box-sizing: border-box;
 }
 
 .game-card:hover {
@@ -82,6 +85,23 @@ button {
 
 button:hover {
     cursor:pointer;
+}
+
+.button {
+    font-family: 'Cabin', sans-serif;
+    display: inline-block;
+    border: none;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 7px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #dddddd;
 }
 
 #search-container {
