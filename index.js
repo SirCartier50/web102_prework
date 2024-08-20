@@ -31,9 +31,16 @@ function addGamesToPage(games) {
     // loop over each item in the data
     for (let i of games){
         const element = document.createElement('div')
-        element.classList.add('game-card')
-        element.innerHTML = `<img id="game-img" src=${i.img} height = 50% width=100%><h3>${i.name}</h3><p>${i.description}</p><p>${i.backers}</p>`
+        const subel = document.createElement('a')
+        subel.classList.add('game-card')
+        subel.addEventListener('click', function(){
+            const valueToSend = i.name;
+            window.location.href = `about.html?value=${encodeURIComponent(valueToSend)}`;
+        })
+        subel.innerHTML = `<img id="game-img" src=${i.img} height = 50% width=100%><h3>${i.name}</h3><p>${i.description}</p>`
+        element.appendChild(subel)
         gamesContainer.append(element)
+
     }
 
         // create a new div element, which will become the game card
@@ -175,7 +182,19 @@ const SecGame = document.createElement("p")
 SecGame.innerHTML = second.name
 secondGameContainer.append(SecGame)
 function filt(text){
-    const funded = GAMES_JSON.filter((game)=>{return game.startsWith(text)})
+    deleteChildElements(gamesContainer);
+    console.log("Filtering with text:", text);
+    const funded = GAMES_JSON.filter((game)=>{return game.name.toLowerCase().startsWith(text.toLowerCase())})
     addGamesToPage(funded)
 }
-document.getElementById("search-container").innerHTML = `<input type="text" onchange="filt(this.value)" label = "search"></input>`
+const searchContainer = document.getElementById("search-container");
+const inputElement = document.createElement("input");
+inputElement.type = "text";
+inputElement.setAttribute("label", "search");
+
+
+inputElement.addEventListener("input", function() {
+    filt(this.value);
+});
+
+searchContainer.appendChild(inputElement);
